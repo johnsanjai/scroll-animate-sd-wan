@@ -1,25 +1,16 @@
-.counter {
+body {
+  margin: 0;
+  padding: 0;
   display: flex;
-  font-size: 60px;
-  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fff;
+}
+
+.counter {
+  font-size: 48px;
   color: #ff0000;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.digit-container {
-  overflow: hidden;
-  height: 72px;
-  width: 40px;
-  margin: 0 2px;
-  position: relative;
-}
-
-.digit-strip {
-  position: relative;
-}
-
-.digit {
-  height: 72px;
-  line-height: 72px;
-  text-align: center;
+  font-family: monospace;
+  animation: ease-in-out;
 }
