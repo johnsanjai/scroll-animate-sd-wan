@@ -1,0 +1,25 @@
+.counter {
+  display: flex;
+  font-size: 60px;
+  font-weight: bold;
+  color: #ff0000;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.digit-container {
+  overflow: hidden;
+  height: 72px;
+  width: 40px;
+  margin: 0 2px;
+  position: relative;
+}
+
+.digit-strip {
+  position: relative;
+}
+
+.digit {
+  height: 72px;
+  line-height: 72px;
+  text-align: center;
+}
