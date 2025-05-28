@@ -1,40 +1,48 @@
-function createDigitElement() {
-  const container = document.createElement('div');
-  for (let i = 0; i <= 9; i++) {
-    const span = document.createElement('span');
-    span.textContent = i;
-    container.appendChild(span);
-  }
-  return container;
-}
+(function() {
+  const finalNumber = 247; // Your target number here
+  const digitHeight = 72;  // must match CSS .digit height
+  const animationDuration = 2000; // ms
 
-function updateDigit(id, value) {
-  const el = document.getElementById(id);
-  el.innerHTML = ''; // Clear existing
-  const digitList = createDigitElement();
-  el.appendChild(digitList);
-  digitList.style.transform = `translateY(-${value * 70}px)`; // 70px = height of digit
-}
+  const counterEl = document.getElementById("counter");
+  const digits = finalNumber.toString().split('');
+  counterEl.innerHTML = '';
 
-function animateCounter(target) {
-  let count = 0;
-  const interval = setInterval(() => {
-    if (count > target) {
-      clearInterval(interval);
-      return;
+  digits.forEach((digitChar, index) => {
+    const container = document.createElement('div');
+    container.className = 'digit-container';
+
+    const strip = document.createElement('div');
+    strip.className = 'digit-strip';
+
+    // Create digits 0-9 stacked vertically
+    for (let i = 0; i <= 9; i++) {
+      const d = document.createElement('div');
+      d.className = 'digit';
+      d.textContent = i;
+      strip.appendChild(d);
     }
-    const hundreds = Math.floor(count / 100);
-    const tens = Math.floor((count % 100) / 10);
-    const ones = count % 10;
 
-    updateDigit('hundreds', hundreds);
-    updateDigit('tens', tens);
-    updateDigit('ones', ones);
+    container.appendChild(strip);
+    counterEl.appendChild(container);
 
-    count++;
-  }, 30);
-}
+    // Apply CSS animation to scroll strip to correct digit
+    const digit = parseInt(digitChar, 10);
+    const distance = digit * digitHeight;
 
-window.onload = () => {
-  animateCounter(247);
-};
+    // Create a unique animation name for each digit to scroll to correct place
+    const animName = `scrollDigit${index}`;
+
+    // Create keyframes dynamically
+    const styleSheet = document.styleSheets[0];
+    const keyframes =
+      `@keyframes ${animName} {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-${distance}px); }
+      }`;
+
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+    // Apply animation to strip
+    strip.style.animation = `${animName} ${animationDuration}ms ease-in-out forwards`;
+  });
+})();
