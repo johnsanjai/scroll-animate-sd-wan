@@ -1,7 +1,7 @@
-(function() {
-  const finalNumber = 247; // Your target number here
-  const digitHeight = 72;  // must match CSS .digit height
-  const animationDuration = 2000; // ms
+(function () {
+  const finalNumber = 247;
+  const digitHeight = 96;
+  const animationDuration = 2000;
 
   const counterEl = document.getElementById("counter");
   const digits = finalNumber.toString().split('');
@@ -14,7 +14,6 @@
     const strip = document.createElement('div');
     strip.className = 'digit-strip';
 
-    // Create digits 0-9 stacked vertically
     for (let i = 0; i <= 9; i++) {
       const d = document.createElement('div');
       d.className = 'digit';
@@ -25,14 +24,10 @@
     container.appendChild(strip);
     counterEl.appendChild(container);
 
-    // Apply CSS animation to scroll strip to correct digit
     const digit = parseInt(digitChar, 10);
     const distance = digit * digitHeight;
-
-    // Create a unique animation name for each digit to scroll to correct place
     const animName = `scrollDigit${index}`;
 
-    // Create keyframes dynamically
     const styleSheet = document.styleSheets[0];
     const keyframes =
       `@keyframes ${animName} {
@@ -42,7 +37,6 @@
 
     styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
 
-    // Apply animation to strip
-    strip.style.animation = `${animName} ${animationDuration}ms ease-in-out forwards`;
+    strip.style.animation = `${animName} ${animationDuration}ms cubic-bezier(0.33, 1, 0.68, 1) forwards`;
   });
 })();
