@@ -1,30 +1,25 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #fff;
-  font-family: monospace;
-}
-
-.counter-container {
+.counter {
   display: flex;
   font-size: 60px;
   font-weight: bold;
   color: #ff0000;
-  gap: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.digit-container {
+  overflow: hidden;
+  height: 72px;
+  width: 40px;
+  margin: 0 2px;
+  position: relative;
+}
+
+.digit-strip {
+  position: relative;
 }
 
 .digit {
-  position: relative;
-  width: 40px;
-  height: 70px;
-  overflow: hidden;
-}
-
-.digit span {
-  display: block;
-  height: 70px;
-  line-height: 70px;
-  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  height: 72px;
+  line-height: 72px;
+  text-align: center;
 }
