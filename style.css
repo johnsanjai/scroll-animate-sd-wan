@@ -1,16 +1,29 @@
-.counter {
+body {
+  background-color: white;
   display: flex;
-  font-size: 60px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.counter {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 80px;
   font-weight: bold;
   color: #ff0000;
   font-family: 'Courier New', Courier, monospace;
+  display: flex;
 }
 
 .digit-container {
   overflow: hidden;
-  height: 72px;
-  width: 40px;
-  margin: 0 2px;
+  height: 96px;
+  width: 56px;
+  margin: 0 4px;
   position: relative;
 }
 
@@ -19,7 +32,7 @@
 }
 
 .digit {
-  height: 72px;
-  line-height: 72px;
+  height: 96px;
+  line-height: 96px;
   text-align: center;
 }
