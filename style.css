@@ -20,7 +20,7 @@ body {
 }
 
 .digit-container {
-  overflow: hidden;
+  overflow: visible;
   height: 96px;
   width: 56px;
   margin: 0 4px;
