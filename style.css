@@ -1,25 +1,30 @@
 body {
-  margin: 0;
-  padding: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   background: #fff;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
-.counter-wrapper {
-  overflow: hidden;
-  height: 70px;
+.counter-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.counter {
   font-size: 60px;
   font-weight: bold;
   color: #ff0000;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  gap: 10px;
+}
+
+.digit {
+  position: relative;
+  width: 40px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.digit span {
+  display: block;
+  height: 70px;
+  line-height: 70px;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
